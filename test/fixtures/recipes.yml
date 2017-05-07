@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ingredients: MyText
+  instructions: MyText
+  meal: 1
+  category: 1
+  cooking_style: MyString
+  integer: MyString
+  ethnicity: MyString
+  integer: MyString
+
+two:
+  name: MyString
+  ingredients: MyText
+  instructions: MyText
+  meal: 1
+  category: 1
+  cooking_style: MyString
+  integer: MyString
+  ethnicity: MyString
+  integer: MyString
