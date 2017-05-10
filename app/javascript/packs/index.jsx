@@ -11,7 +11,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('app')
   )
 })
-
-// <Menu.Item as={NavLink} to='/introduction' activeClassName='active'>
-//               Introduction
-//             </Menu.Item>

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   state = { activeItem: 'home' }
@@ -11,7 +12,7 @@ class NavBar extends Component {
 
     return (
       <Menu size='tiny'>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick}>
+        <Menu.Item as={NavLink} to='/home' activeClassName='active' >
           Home
         </Menu.Item>
         <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick}>
@@ -23,3 +24,7 @@ class NavBar extends Component {
 }
 
 export default NavBar
+
+// <Menu.Item as={NavLink} to='/introduction' activeClassName='active'>
+//               Introduction
+//             </Menu.Item>
