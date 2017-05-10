@@ -27,6 +27,7 @@
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
     "sass-loader": "^6.0.3",
+    "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.68.3",
     "style-loader": "^0.17.0",
     "webpack": "^2.5.1",
