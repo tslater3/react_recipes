@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507204658) do
+ActiveRecord::Schema.define(version: 20170511025235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +23,39 @@ ActiveRecord::Schema.define(version: 20170507204658) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.integer "category_id"
+  create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.text "ingredients"
-    t.text "instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients_recipes", id: false, force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "ingredient_id"
+    t.index ["ingredient_id"], name: "index_ingredients_recipes_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_ingredients_recipes_on_recipe_id"
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.string "step"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipes_categories", id: false, force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_recipes_categories_on_category_id"
+    t.index ["recipe_id"], name: "index_recipes_categories_on_recipe_id"
   end
 
 end

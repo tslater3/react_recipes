@@ -1,3 +1,5 @@
 class Recipe < ApplicationRecord
-  belongs_to :category
+  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :ingredients
+  has_many :instructions
 end
