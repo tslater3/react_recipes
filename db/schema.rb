@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511025235) do
+ActiveRecord::Schema.define(version: 20170517030101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.integer "kind"
-    t.integer "cooking_style"
-    t.integer "ethnicity"
+    t.integer "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +42,15 @@ ActiveRecord::Schema.define(version: 20170511025235) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
   end
 
+  create_table "recipe_categories", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_recipe_categories_on_category_id"
+    t.index ["recipe_id"], name: "index_recipe_categories_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -51,11 +58,6 @@ ActiveRecord::Schema.define(version: 20170511025235) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "recipes_categories", id: false, force: :cascade do |t|
-    t.bigint "recipe_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_recipes_categories_on_category_id"
-    t.index ["recipe_id"], name: "index_recipes_categories_on_recipe_id"
-  end
-
+  add_foreign_key "recipe_categories", "categories"
+  add_foreign_key "recipe_categories", "recipes"
 end

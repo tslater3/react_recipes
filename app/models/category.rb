@@ -1,7 +1,8 @@
 class Category < ApplicationRecord
-  has_and_belongs_to_many :recipes
+  has_many :recipe_categories
+  has_many :recipes, through: :recipe_categories
 
-  enum kind:          [
+  enum name:          [
                        :breakfast,
                        :brunch,
                        :lunch,
@@ -13,18 +14,19 @@ class Category < ApplicationRecord
                        :chicken,
                        :pork,
                        :seafood,
-                       :salad
+                       :salad,
+                       :grill,
+                       :meatless,
+                       :one_dish,
+                       :oven_baked,
+                       :pressure_cooker,
+                       :slow_cooker,
+                       :stovetop,
+                       :american,
+                       :african,
+                       :asian,
+                       :european,
+                       :latin_american,
+                       :australian
                       ]
-
-  enum cooking_style: [
-                        :grill,
-                        :meatless,
-                        :one_dish,
-                        :oven_baked,
-                        :pressure_cooker,
-                        :slow_cooker,
-                        :stovetop
-                      ]
-
-  enum ethnicity: [ :american, :african, :asian, :european, :latin_american, :australian ]
 end
