@@ -10,12 +10,6 @@
 
     recipes = Recipe.create([{name: 'Beef Stroganoff'}, {name: 'Spaghetti'}, {name: 'Lasagna'}, {name: 'Chicken Fajitas'}, {name: 'Beef Fajitas'}, {name: 'Pork Fajitas'}, {name: 'Shrimp Fajitas'}, {name: 'Street Tacos'}, {name: 'Orange Chicken'}, {name: 'Hot mulled Cider'}, {name: 'Apple Pie'}, {name: 'Beef Stew'}, {name: 'Caramel Lady Apples'}, {name: 'Chili'}, {name: 'Aebleskivers'}, {name: 'Danish Fudge'}, {name: 'Sweet Potatoes'}, {name: 'Baked Potatoes'}, {name: 'Butternut Squash'}, {name: 'Eggnog Pancakes'}, {name: 'Portuguese-Style Mussels in Garlic Cream Sauce'}, {name: 'Chai Coconut Chicken Strips'}, {name: 'Chocolate Cake'}, {name: 'Beef Bulgogi'}, {name: 'Brown Sugar Cookies'}, {name: 'Italian Sausage Tailgate Dip'}])
 
-    # recipes.each do |recipe|
-    #   recipe.categories << categories.sample
-    #   recipe.categories << categories.sample
-    #   recipe.save
-    # end
-
     categories.each do |category|
       5.times do
         category.recipes << recipes.sample
