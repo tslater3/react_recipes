@@ -12,7 +12,7 @@ class NavBar extends Component {
 
     return (
       <Menu size='tiny'>
-        <Menu.Item as={NavLink} to='/home' activeClassName='active' >
+        <Menu.Item as={NavLink} to='/categories' activeClassName='active'>
           Home
         </Menu.Item>
         <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick}>
